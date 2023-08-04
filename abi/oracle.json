@@ -1,0 +1,682 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "routers",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "kyberPath",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "apeSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "fromToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "toToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tradeAmount",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "miniOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              }
+            ],
+            "internalType": "struct Inquiry",
+            "name": "path",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct PreTradeInfo[]",
+        "name": "trade",
+        "type": "tuple[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "worthAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getAmm",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "worth",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "earning",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "fromToken",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "toToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tradeAmount",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "miniOut",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                  }
+                ],
+                "internalType": "struct Inquiry",
+                "name": "path",
+                "type": "tuple"
+              }
+            ],
+            "internalType": "struct PreTradeInfo[]",
+            "name": "path",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct AmmInfo",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "fromToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "toToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "tradeAmount",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "miniOut",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+              }
+            ],
+            "internalType": "struct Inquiry",
+            "name": "path",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct PreTradeInfo[][]",
+        "name": "trade",
+        "type": "tuple[][]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "worthAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getAmmArray",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "worth",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "earning",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "fromToken",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "toToken",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "tradeAmount",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "miniOut",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                  }
+                ],
+                "internalType": "struct Inquiry",
+                "name": "path",
+                "type": "tuple"
+              }
+            ],
+            "internalType": "struct PreTradeInfo[]",
+            "name": "path",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct AmmInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "routerName",
+        "type": "string"
+      }
+    ],
+    "name": "getPoolRouter",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "jetSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "srcAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "destAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "srcQty",
+        "type": "uint256"
+      }
+    ],
+    "name": "kyberSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "meshSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "mmfSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "srcAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "destAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "srcQty",
+        "type": "uint256"
+      }
+    ],
+    "name": "musdSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "polycatSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "quickSwapV2",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "routers",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "miniOut",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct Inquiry[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "routerName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "Addr",
+        "type": "address"
+      }
+    ],
+    "name": "setPoolRouter",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "synapaseSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_swap",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "targetRouter",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "uniLikeSwaper",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "uniSwapV2",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

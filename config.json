@@ -1,0 +1,13 @@
+{
+    "chainId":137,
+    "provider":"https://poly-rpc.gateway.pokt.network",
+    "gasIncress":1,
+    "tradeSetting":{
+        "maxSlippage":0.0005,
+        "monitInterval":100,
+        "gasLimit":0.3,
+        "miniReward":"0",
+        "gasMax":70,
+        "tradeAmount":"1000000"
+    }
+}

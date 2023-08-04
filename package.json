@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@balancer-labs/sor": "^4.0.1-beta.1",
+    "abi-decoder": "^2.4.0",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.9",
+    "pkg": "^5.7.0",
+    "web3": "^1.7.4"
+  }
+}

@@ -1,0 +1,774 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "routers",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "mantisPath",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "baseAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quoteAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "DPPFlashLoanCall",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "baseAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quoteAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "DSPFlashLoanCall",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "baseAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quoteAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "DVMFlashLoanCall",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "totallWithdraws",
+        "type": "uint256"
+      }
+    ],
+    "name": "Withdraws",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "totallWithdraws",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      }
+    ],
+    "name": "WithdrawsToken",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "apeSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "inputToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "outputToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "inputAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "outputAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "goodUntil",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint8",
+            "name": "v",
+            "type": "uint8"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "r",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "s",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct Signature",
+        "name": "theSignature",
+        "type": "tuple"
+      },
+      {
+        "internalType": "bytes",
+        "name": "auxiliaryData",
+        "type": "bytes"
+      }
+    ],
+    "name": "clipperSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "target",
+        "type": "address"
+      },
+      {
+        "internalType": "address[]",
+        "name": "approveTarget",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amout",
+        "type": "uint256"
+      }
+    ],
+    "name": "doApprove",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "routerName",
+        "type": "string"
+      }
+    ],
+    "name": "getPoolRouter",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "jetSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ERC20",
+        "name": "src",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "srcAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "contract ERC20",
+        "name": "dest",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "destAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "maxDestAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "minConversionRate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "walletId",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "hint",
+        "type": "bytes"
+      }
+    ],
+    "name": "kyberSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "outputAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "mantisSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "meshSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "outputAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "musd",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "target",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "approveTarget",
+        "type": "address"
+      }
+    ],
+    "name": "oneApprove",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "polycatSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "quickSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "inputToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "outputToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "inputAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "outputAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "destinationAddress",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "goodUntil",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint8",
+                    "name": "v",
+                    "type": "uint8"
+                  },
+                  {
+                    "internalType": "bytes32",
+                    "name": "r",
+                    "type": "bytes32"
+                  },
+                  {
+                    "internalType": "bytes32",
+                    "name": "s",
+                    "type": "bytes32"
+                  }
+                ],
+                "internalType": "struct Signature",
+                "name": "theSignature",
+                "type": "tuple"
+              },
+              {
+                "internalType": "bytes",
+                "name": "auxiliaryData",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct ClipperStruct",
+            "name": "clipper",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct TradeInfo",
+        "name": "_from",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "inputToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "outputToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "inputAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "outputAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "destinationAddress",
+            "type": "address"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "goodUntil",
+                "type": "uint256"
+              },
+              {
+                "components": [
+                  {
+                    "internalType": "uint8",
+                    "name": "v",
+                    "type": "uint8"
+                  },
+                  {
+                    "internalType": "bytes32",
+                    "name": "r",
+                    "type": "bytes32"
+                  },
+                  {
+                    "internalType": "bytes32",
+                    "name": "s",
+                    "type": "bytes32"
+                  }
+                ],
+                "internalType": "struct Signature",
+                "name": "theSignature",
+                "type": "tuple"
+              },
+              {
+                "internalType": "bytes",
+                "name": "auxiliaryData",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct ClipperStruct",
+            "name": "clipper",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct TradeInfo",
+        "name": "_to",
+        "type": "tuple"
+      },
+      {
+        "internalType": "address",
+        "name": "flashLoanPool",
+        "type": "address"
+      }
+    ],
+    "name": "router",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "routerName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "Addr",
+        "type": "address"
+      }
+    ],
+    "name": "setPoolRouter",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "outputAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "synapaseSwap",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountOutMins",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "uniSwapV2",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenIn",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_tokenOut",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "uniV2LikeSwap",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
