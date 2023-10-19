@@ -8,7 +8,17 @@ async function getMyBalance()
 {
     return await web3.eth.getBalance(process.env.PUBLIC_ADDRESS)
 }
-
+async function getTokenbalance(token)
+{
+    const contractInfo = contractConfig.getConfig("Erc20");
+    var  Ctr = new web3.eth.Contract(contractInfo.abi,token);
+    var ret ; 
+    await Ctr.methods.balanceOf(process.env.PUBLIC_ADDRESS).call()
+                .then(function(result){ 
+                   ret = result;
+            });
+    return ret;
+}
 /**
  * 🚀 Send Out Transactions
  */
@@ -37,8 +47,9 @@ async function bookMakerBet(amount){
         1,
         amount,
         "0x000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001"
+        // Buffer.from("0x000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001","hex")
     );
-    const signedTx = await signTxn(contractInfo.address,tx);
+    const signedTx = await signTxnWithValue(contractInfo.address,tx,web3.utils.toWei("0.0002", "ether"));
     const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
     return receipt;
 }
@@ -47,8 +58,8 @@ async function bookMakerBet(amount){
 async function erc20Approve(tokenA,target){
     const contractInfo = contractConfig.getConfig("Erc20");
     const  Ctr = new web3.eth.Contract(contractInfo.abi,tokenA);
-    const tx = Ctr.methods.approve(target,"10000000");
-    const signedTx = await signTxn(contractInfo.address,tx);
+    const tx = Ctr.methods.approve(target,"100000000");
+    const signedTx = await signTxn(tokenA,tx);
 
     if(signedTx ==0 ){
         //Gas Limit 
@@ -67,9 +78,9 @@ async function  doSignTransaction(txn){
  */
 
 async function signTxn(to,tx){
-    
+    console.log("🐞 try sign :: ")
     const gas = await tx.estimateGas({from: process.env.PUBLIC_ADDRESS});
-    const gasPrice = (await web3.eth.getGasPrice())*config.gasIncress;
+    const gasPrice = (await web3.eth.getGasPrice());
     const gasComsume = gas*gasPrice/1e18;
     console.log(gasComsume);
     if(gasComsume>config.tradeSetting.gasLimit){
@@ -93,7 +104,7 @@ async function signTxn(to,tx){
 }
 
 async function signTxnWithValue(to,tx,value){
-    
+    console.log("🐞 try signTxnWithValue :: ")
     const gas = await tx.estimateGas({from: process.env.PUBLIC_ADDRESS,value:value});
     const gasPrice = await web3.eth.getGasPrice();
     const gasComsume = gas*gasPrice/1e18;
@@ -127,5 +138,6 @@ module.exports = {
     verfiTxnStatus,
     placeBet,
     getMyBalance,
-    bookMakerBet
+    bookMakerBet,
+    getTokenbalance
 }
