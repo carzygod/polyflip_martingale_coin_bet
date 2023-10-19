@@ -1,6 +1,6 @@
 {
     "chainId":137,
-    "provider":"https://poly-rpc.gateway.pokt.network",
+    "provider":"https://1rpc.io/matic",
     "gasIncress":1,
     "tradeSetting":{
         "maxSlippage":0.0005,

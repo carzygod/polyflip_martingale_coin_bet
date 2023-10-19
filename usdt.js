@@ -11,7 +11,7 @@ var myBalance = 0;
 
 var index = 0 ; 
 
-var baseAmout = 0.1 ;
+var baseAmout = 100000 ;
 function getTokenHex (data){
     return web3.utils.toHex(data);
 }
@@ -34,7 +34,7 @@ async function signLoop(){
     if(Number(nowBalance)<=Number(myBalance))
     {
         var amount = Math.pow(2, index)*baseAmout;
-        if(amount<(nowBalance/1e18))
+        if(amount<(nowBalance))
         {
             var tx = await newBookMakerBet(
             amount
@@ -44,10 +44,10 @@ async function signLoop(){
             )
         }else{
             var tx = await newBet(
-                (nowBalance/1e18)
+                (nowBalance)
                     );
                 console.log(
-                "⚠️ This is a warning for new bet : ",(nowBalance/1e18),tx.transactionHash
+                "⚠️ This is a warning for new bet : ",Number(nowBalance),tx.transactionHash
                 )
         }
         index++;
@@ -67,11 +67,11 @@ async function init(){
     while(true){
         try{
             await signLoop();
-            await tool.sleep(120000);
+            await tool.sleep(60000);
         }
         catch(e){
             console.log(e)
-            await tool.sleep(120000);
+            await tool.sleep(60000);
         }
         
         i++;
@@ -90,7 +90,7 @@ async function debug()
     // var hash = await newBet(0.2)
     var hash = await newBookMakerBet(100000)
     console.log(hash.transactionHash)
-    await tool.sleep(120000)
+    await tool.sleep(60000)
     var after = await contractApi.getTokenbalance("0xc2132D05D31c914a87C6611C10748AEb04B58e8F");
     console.log(
         "🍺Now Balance"
@@ -101,6 +101,6 @@ async function debug()
 }
 // signLoop()
 
-debug()
+// debug()
 
-// init()
+init()
