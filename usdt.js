@@ -22,8 +22,14 @@ async function newBet(amount)
 }
 async function newBookMakerBet(amount)
 {
-    var txn = await contractApi.bookMakerBet(amount)
-    return txn
+    try{
+        var txn = await contractApi.bookMakerBet(amount)
+        return txn
+    }catch(e)
+    {
+        return false
+    }
+
 }
 
 // var amount =  10;
@@ -39,17 +45,30 @@ async function signLoop(){
             var tx = await newBookMakerBet(
             amount
                 );
-            console.log(
-            "🔥You have place new bet for : ",amount,tx.transactionHash
-            )
+                if(tx)
+                {
+                    console.log(
+                        `${index} 🔥You have place new bet for : `,amount,tx.transactionHash
+                        )
+                }else{
+                    throw("err");
+                }
+
         }else{
-            var tx = await newBet(
+            var tx = await newBookMakerBet(
                 (nowBalance)
                     );
-                console.log(
-                "⚠️ This is a warning for new bet : ",Number(nowBalance),tx.transactionHash
-                )
+
+                    if(tx)
+                    {
+                        console.log(
+                            "⚠️ This is a warning for new bet : ",Number(nowBalance),tx.transactionHash
+                            )
+                    }else{
+                        throw("err");
+                    }
         }
+        myBalance=nowBalance;
         index++;
     }else{
         console.log("🍺You have win the bet , Now your balance : ",nowBalance);
