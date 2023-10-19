@@ -28,6 +28,20 @@ async function placeBet(amount){
     return receipt;
 }
 
+async function bookMakerBet(amount){
+    const contractInfo = contractConfig.getConfig("bookMaker");
+    const  Ctr = new web3.eth.Contract(contractInfo.abi,contractInfo.address);
+    const tx = Ctr.methods.play(
+        "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "0x82875517c2B4bd534de4B2C0d21BFf5F40b25dA6",
+        1,
+        amount,
+        "0x000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001"
+    );
+    const signedTx = await signTxn(contractInfo.address,tx);
+    const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+    return receipt;
+}
 
 
 async function erc20Approve(tokenA,target){
@@ -81,7 +95,7 @@ async function signTxn(to,tx){
 async function signTxnWithValue(to,tx,value){
     
     const gas = await tx.estimateGas({from: process.env.PUBLIC_ADDRESS,value:value});
-    const gasPrice = (await web3.eth.getGasPrice())*config.gasIncress;
+    const gasPrice = await web3.eth.getGasPrice();
     const gasComsume = gas*gasPrice/1e18;
     console.log(gasComsume);
     const data = tx.encodeABI();
@@ -112,5 +126,6 @@ module.exports = {
     doSignTransaction,
     verfiTxnStatus,
     placeBet,
-    getMyBalance
+    getMyBalance,
+    bookMakerBet
 }

@@ -8,6 +8,7 @@ const routerAbi = require("./router.json")
 const inchAbi = require("./1inch.json")
 const mantisAbi = require("./mantis.json")
 const polyflipAbi = require("./polyflip.json")
+const bookMakerAbi = require("./bookmaker.json")
 require('dotenv').config()
 const abiConfig ={
     "CurveSwap":{
@@ -45,6 +46,10 @@ const abiConfig ={
     "polyflip":{
         "address":"0xe5e7e2182961ee87653e22df932ca28e852b1449",
         "abi":polyflipAbi
+    },
+    "bookMaker":{
+        "address":"0x09961f893a1d1419b56950d3795653e28eee436b",
+        "abi":bookMakerAbi
     },
     "Erc20":{
         "abi":ERC20ABI

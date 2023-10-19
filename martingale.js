@@ -19,6 +19,11 @@ async function newBet(amount)
     var txn = await contractApi.placeBet(amount)
     return txn
 }
+async function newBookMakerBet(amount)
+{
+    var txn = await contractApi.bookMakerBet(amount)
+    return txn
+}
 
 // var amount =  10;
 async function signLoop(){
@@ -81,7 +86,8 @@ async function debug()
         ,
         before
         )
-    var hash = await newBet(4)
+    // var hash = await newBet(0.2)
+    var hash = await newBookMakerBet(100000)
     console.log(hash.transactionHash)
     await tool.sleep(120000)
     var after = await contractApi.getMyBalance();
@@ -94,6 +100,6 @@ async function debug()
 }
 // signLoop()
 
-// debug()
+debug()
 
-init()
+// init()
