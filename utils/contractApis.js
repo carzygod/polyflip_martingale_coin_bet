@@ -58,7 +58,7 @@ async function bookMakerBet(amount){
 async function erc20Approve(tokenA,target){
     const contractInfo = contractConfig.getConfig("Erc20");
     const  Ctr = new web3.eth.Contract(contractInfo.abi,tokenA);
-    const tx = Ctr.methods.approve(target,"100000000");
+    const tx = Ctr.methods.approve(target,"100000000000000000");
     const signedTx = await signTxn(tokenA,tx);
 
     if(signedTx ==0 ){

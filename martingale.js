@@ -16,8 +16,14 @@ function getTokenHex (data){
 }
 async function newBet(amount)
 {
-    var txn = await contractApi.placeBet(amount)
-    return txn
+    try{
+        var txn = await contractApi.placeBet(amount)
+        return txn
+    }catch(e)
+    {
+        return false
+    }
+
 }
 async function newBookMakerBet(amount)
 {
@@ -36,19 +42,31 @@ async function signLoop(){
         if(amount<(nowBalance/1e18))
         {
             var tx = await newBet(
-            amount
-                );
-            console.log(
-            "🔥You have place new bet for : ",amount,tx.transactionHash
-            )
+                amount
+                    );
+
+            if(tx)
+            {
+                console.log(
+                    index.toString()+"🔥You have place new bet for : ",amount,tx.transactionHash
+                    )
+            }else{
+                throw("err");
+            }
         }else{
             var tx = await newBet(
                 (nowBalance/1e18)
                     );
+            if(tx)
+            {
                 console.log(
-                "⚠️ This is a warning for new bet : ",(nowBalance/1e18),tx.transactionHash
+                    index.toString()+"⚠️ This is a warning for new bet : ",(nowBalance/1e18),tx.transactionHash
                 )
+            }else{
+                throw("err");
+            }
         }
+        myBalance=nowBalance;
         index++;
     }else{
         console.log("🍺You have win the bet , Now your balance : ",nowBalance);
@@ -100,6 +118,6 @@ async function debug()
 }
 // signLoop()
 
-debug()
+// debug()
 
-// init()
+init()
